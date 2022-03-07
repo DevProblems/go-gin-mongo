@@ -38,25 +38,25 @@ func (u *UserServiceImpl) GetAll() ([]*models.User, error) {
 	var users []*models.User
 	cursor, err := u.usercollection.Find(u.ctx, bson.D{{}})
 	if err != nil {
-		return users, nil
+		return nil, err
 	}
 	for cursor.Next(u.ctx) {
 		var user models.User
 		err := cursor.Decode(&user)
 		if err != nil {
-			return users, err
+			return nil, err
 		}
 		users = append(users, &user)
 	}
 
 	if err := cursor.Err(); err != nil {
-		return users, err
+		return nil, err
 	}
 
 	cursor.Close(u.ctx)
 
 	if len(users) == 0 {
-		return users, errors.New("documents not found")
+		return nil, errors.New("documents not found")
 	}
 	return users, nil
 }

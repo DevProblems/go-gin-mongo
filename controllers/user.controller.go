@@ -3,11 +3,15 @@ package controllers
 import (
 	"net/http"
 
-	"example.com/sarang-apis/models"
-	"example.com/sarang-apis/services"
+	"github.com/DevProblems/sarang-gin-mongo-apis/models"
+	"github.com/DevProblems/sarang-gin-mongo-apis/services"
 	"github.com/gin-gonic/gin"
 )
 
+/*
+	@Author: DevProblems(Sarang Kumar)
+	@YTChannel: https://www.youtube.com/channel/UCVno4tMHEXietE3aUTodaZQ
+*/
 type UserController struct {
 	UserService services.UserService
 }

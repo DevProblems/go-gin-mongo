@@ -5,14 +5,18 @@ import (
 	"fmt"
 	"log"
 
-	"example.com/sarang-apis/controllers"
-	"example.com/sarang-apis/services"
+	"github.com/DevProblems/sarang-gin-mongo-apis/controllers"
+	"github.com/DevProblems/sarang-gin-mongo-apis/services"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+/*
+	@Author: DevProblems(Sarang Kumar)
+	@YTChannel: https://www.youtube.com/channel/UCVno4tMHEXietE3aUTodaZQ
+*/
 var (
 	server      *gin.Engine
 	us          services.UserService
@@ -29,11 +33,11 @@ func init() {
 	mongoconn := options.Client().ApplyURI("mongodb://localhost:27017")
 	mongoclient, err = mongo.Connect(ctx, mongoconn)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("error while connecting with mongo", err)
 	}
 	err = mongoclient.Ping(ctx, readpref.Primary())
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("error while trying to ping mongo", err)
 	}
 
 	fmt.Println("mongo connection established")

@@ -4,12 +4,16 @@ import (
 	"context"
 	"errors"
 
-	"example.com/sarang-apis/models"
+	"github.com/DevProblems/sarang-gin-mongo-apis/models"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+/*
+	@Author: DevProblems(Sarang Kumar)
+	@YTChannel: https://www.youtube.com/channel/UCVno4tMHEXietE3aUTodaZQ
+*/
 type UserServiceImpl struct {
 	usercollection *mongo.Collection
 	ctx            context.Context

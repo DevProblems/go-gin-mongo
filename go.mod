@@ -1,4 +1,4 @@
-module example.com/sarang-apis
+module github.com/DevProblems/sarang-gin-mongo-apis
 
 go 1.17
 
